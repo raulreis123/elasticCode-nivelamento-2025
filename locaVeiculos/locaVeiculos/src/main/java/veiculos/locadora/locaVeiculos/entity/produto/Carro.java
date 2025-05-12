@@ -38,5 +38,5 @@ public class Carro {
     // Um carro pode ter nenhum ou varios acessorios
 
     @ManyToMany
-    private List<Acessorio> acessorio;
+    private List<Acessorio> acessorios;
 }
