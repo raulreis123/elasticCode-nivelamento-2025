@@ -13,4 +13,5 @@ public class FuncionarioRequestDto {
     private Date dataNasc;
     private String cpf;
     private Sexo sexo;
+    private String matricula;
 }
