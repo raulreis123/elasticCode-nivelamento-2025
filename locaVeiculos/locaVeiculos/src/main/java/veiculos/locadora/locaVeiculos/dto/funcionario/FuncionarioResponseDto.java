@@ -1,4 +1,4 @@
-package veiculos.locadora.locaVeiculos.dto;
+package veiculos.locadora.locaVeiculos.dto.funcionario;
 
 import lombok.Getter;
 import lombok.Setter;

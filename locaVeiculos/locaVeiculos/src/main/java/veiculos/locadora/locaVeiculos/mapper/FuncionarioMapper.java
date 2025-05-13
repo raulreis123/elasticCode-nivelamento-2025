@@ -1,26 +1,18 @@
 package veiculos.locadora.locaVeiculos.mapper;
 
-import veiculos.locadora.locaVeiculos.dto.FuncionarioRequestDto;
-import veiculos.locadora.locaVeiculos.dto.FuncionarioResponseDto;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import veiculos.locadora.locaVeiculos.dto.funcionario.FuncionarioRequestDto;
+import veiculos.locadora.locaVeiculos.dto.funcionario.FuncionarioResponseDto;
 import veiculos.locadora.locaVeiculos.entity.usuario.Funcionario;
 
-public class FuncionarioMapper {
-    public Funcionario toEntity(FuncionarioRequestDto request){
-        Funcionario funcionario = new Funcionario();
-        funcionario.setNome(request.getNome());
-        funcionario.setDataNasc(request.getDataNasc());
-        funcionario.setCpf(request.getCpf());
-        funcionario.setSexo(request.getSexo());
+import java.util.List;
 
-        return funcionario;
-    }
+@Mapper(componentModel = "spring")
+public interface FuncionarioMapper {
 
-    public FuncionarioResponseDto toDto(Funcionario funcionario){
-        FuncionarioResponseDto dto = new FuncionarioResponseDto();
-        dto.setId(funcionario.getId());
-        dto.setNome(funcionario.getNome());
-        dto.setSexo(funcionario.getSexo());
-
-        return dto;
-    }
+    @Mapping(source = "nome", target = "nome")
+    Funcionario toEntity(FuncionarioRequestDto requestDto);
+    FuncionarioResponseDto toDto(Funcionario funcionario);
+    List<FuncionarioResponseDto> toListDto(List<Funcionario> funcionarios);
 }
