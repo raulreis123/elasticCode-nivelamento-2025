@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import veiculos.locadora.locaVeiculos.dto.motorista.MotoristaRequestDto;
 import veiculos.locadora.locaVeiculos.dto.motorista.MotoristaResponseDto;
 import veiculos.locadora.locaVeiculos.entity.usuario.Motorista;
+import veiculos.locadora.locaVeiculos.exceptions.EntidadeInvalidaException;
 import veiculos.locadora.locaVeiculos.exceptions.EntidadeNaoEncontradoException;
 import veiculos.locadora.locaVeiculos.mapper.MotoristaMapper;
 import veiculos.locadora.locaVeiculos.repository.MotoristaRepository;
@@ -26,6 +27,9 @@ public class MotoristaService {
 
     // CREATE
     public MotoristaResponseDto cadastrar(MotoristaRequestDto request){
+        if (repository.existsByEmailIgnoreCase(request.getEmail())) {
+            throw new EntidadeInvalidaException("Email já cadastrado");
+        }
         Motorista motorista = mapperStruct.toEntity(request);
         MotoristaResponseDto dto = mapperStruct.toDto(repository.save(motorista));
         System.out.println("Cadastro realizado com sucesso");

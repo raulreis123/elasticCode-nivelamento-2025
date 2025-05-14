@@ -17,4 +17,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleEntidadeNaoEncontrada(EntidadeNaoEncontradoException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(EntidadeInvalidaException.class)
+    public ResponseEntity<String> handleEntidadeInvalida(EntidadeInvalidaException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.CONFLICT);
+    }
 }

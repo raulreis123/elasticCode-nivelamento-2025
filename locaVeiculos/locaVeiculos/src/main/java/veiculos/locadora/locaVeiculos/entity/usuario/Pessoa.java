@@ -20,6 +20,7 @@ public abstract class Pessoa {
     private String nome;
     private Date dataNasc;
     private String cpf;
+    private String email;
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 }

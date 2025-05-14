@@ -10,8 +10,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface FuncionarioMapper {
-
-    @Mapping(source = "nome", target = "nome")
     Funcionario toEntity(FuncionarioRequestDto requestDto);
     FuncionarioResponseDto toDto(Funcionario funcionario);
     List<FuncionarioResponseDto> toListDto(List<Funcionario> funcionarios);

@@ -1,4 +1,4 @@
-package veiculos.locadora.locaVeiculos.dto.motorista;
+package veiculos.locadora.locaVeiculos.dto.fabricante;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class MotoristaResponseDto {
-    private Integer id;
+@AllArgsConstructor
+public class FabricanteResponseDto {
+
     private String nome;
 }

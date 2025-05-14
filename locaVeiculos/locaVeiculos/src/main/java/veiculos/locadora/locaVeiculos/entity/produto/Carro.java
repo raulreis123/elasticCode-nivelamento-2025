@@ -37,6 +37,9 @@ public class Carro {
     // Um carro pode ter apenas um modelo
     // Um carro pode ter nenhum ou varios acessorios
 
+    @ManyToOne
+    private ModeloCarro modelo;
+
     @ManyToMany
     private List<Acessorio> acessorios;
 }

@@ -40,4 +40,10 @@ public class MotoristaController {
     ){
         return ResponseEntity.status(200).body(service.atualizar(request, id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable Integer id){
+        service.deletarPorId(id);
+        return ResponseEntity.status(204).build();
+    }
 }
