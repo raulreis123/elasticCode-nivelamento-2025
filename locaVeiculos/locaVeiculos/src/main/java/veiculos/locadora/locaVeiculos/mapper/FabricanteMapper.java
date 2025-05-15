@@ -8,7 +8,7 @@ import veiculos.locadora.locaVeiculos.entity.produto.Fabricante;
 
 @Mapper(componentModel = "spring")
 public interface FabricanteMapper {
-    @Mapping(target = "nome", source = "nome")
+    //@Mapping(target = "nome", source = "nome")
     Fabricante toEntity(FabricanteRequestDto fabricante);
     FabricanteResponseDto toDto(Fabricante fabricante);
 }
