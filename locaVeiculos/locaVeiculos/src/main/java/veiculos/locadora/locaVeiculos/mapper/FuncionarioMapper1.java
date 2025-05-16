@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FuncionarioMapper1 {
-    Funcionario toEntity(FuncionarioRequestDto dto){
+    public Funcionario toEntity(FuncionarioRequestDto dto){
         Funcionario funcionario = new Funcionario();
 
         funcionario.setNome(dto.getNome());
@@ -21,7 +21,7 @@ public class FuncionarioMapper1 {
         return funcionario;
     }
 
-    FuncionarioResponseDto toDto(Funcionario funcionario){
+    public FuncionarioResponseDto toDto(Funcionario funcionario){
         FuncionarioResponseDto dto = new FuncionarioResponseDto();
 
         dto.setId(funcionario.getId());
@@ -31,7 +31,7 @@ public class FuncionarioMapper1 {
         return dto;
     }
 
-    List<FuncionarioResponseDto> toListDto(List<Funcionario> funcionarios){
+    public List<FuncionarioResponseDto> toListDto(List<Funcionario> funcionarios){
         List<FuncionarioResponseDto> listDto = new ArrayList<>();
 
         for(Funcionario func : funcionarios){

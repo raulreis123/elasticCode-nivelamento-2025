@@ -7,7 +7,7 @@ import veiculos.locadora.locaVeiculos.entity.produto.ModeloCarro;
 public class ModeloCarroMapper1 {
     FabricanteMapper1 mapper = new FabricanteMapper1();
 
-    ModeloCarro toEntity(ModeloCarroRequestDto dto){
+    public ModeloCarro toEntity(ModeloCarroRequestDto dto){
         ModeloCarro modelo = new ModeloCarro();
 
         modelo.setDescricao(dto.getDescricao());
@@ -17,7 +17,7 @@ public class ModeloCarroMapper1 {
         return modelo;
     }
 
-    ModeloCarroResponseDto toDto(ModeloCarroRequestDto request){
+    public ModeloCarroResponseDto toDto(ModeloCarroRequestDto request){
         ModeloCarroResponseDto dto = new ModeloCarroResponseDto();
 
         dto.setDescricao(request.getDescricao());
@@ -25,7 +25,7 @@ public class ModeloCarroMapper1 {
         return dto;
     }
 
-    ModeloCarroResponseDto toDto(ModeloCarro modelo){
+    public ModeloCarroResponseDto toDto(ModeloCarro modelo){
         ModeloCarroResponseDto dto = new ModeloCarroResponseDto();
 
         dto.setDescricao(modelo.getDescricao());

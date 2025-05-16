@@ -8,6 +8,7 @@ import veiculos.locadora.locaVeiculos.entity.usuario.Motorista;
 import veiculos.locadora.locaVeiculos.exceptions.EntidadeInvalidaException;
 import veiculos.locadora.locaVeiculos.exceptions.EntidadeNaoEncontradoException;
 import veiculos.locadora.locaVeiculos.mapper.MotoristaMapper;
+import veiculos.locadora.locaVeiculos.mapper.MotoristaMapper1;
 import veiculos.locadora.locaVeiculos.repository.MotoristaRepository;
 
 import java.util.List;
@@ -15,15 +16,10 @@ import java.util.Optional;
 
 @Service
 public class MotoristaService {
-    private MotoristaMapper mapperStruct;
+    private MotoristaMapper1 mapperStruct = new MotoristaMapper1();
 
     @Autowired
     private MotoristaRepository repository;
-
-    @Autowired
-    public MotoristaService(MotoristaMapper mapperStruct) {
-        this.mapperStruct = mapperStruct;
-    }
 
     // CREATE
     public MotoristaResponseDto cadastrar(MotoristaRequestDto request){

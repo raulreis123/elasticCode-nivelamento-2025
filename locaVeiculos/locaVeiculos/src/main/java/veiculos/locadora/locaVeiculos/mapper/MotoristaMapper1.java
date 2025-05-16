@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MotoristaMapper1 {
-    Motorista toEntity(MotoristaRequestDto request){
+    public Motorista toEntity(MotoristaRequestDto request){
         Motorista motorista = new Motorista();
 
         motorista.setNome(request.getNome());
@@ -21,7 +21,7 @@ public class MotoristaMapper1 {
         return motorista;
     }
 
-    MotoristaResponseDto toDto(Motorista motorista){
+    public MotoristaResponseDto toDto(Motorista motorista){
         MotoristaResponseDto dto = new MotoristaResponseDto();
 
         dto.setId(motorista.getId());
@@ -30,7 +30,7 @@ public class MotoristaMapper1 {
         return dto;
     }
 
-    List<MotoristaResponseDto> toListDto(List<Motorista> motoristas){
+    public List<MotoristaResponseDto> toListDto(List<Motorista> motoristas){
         List<MotoristaResponseDto> dtos = new ArrayList<>();
 
         for(Motorista mtr : motoristas){

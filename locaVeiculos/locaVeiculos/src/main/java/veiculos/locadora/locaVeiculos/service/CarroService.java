@@ -6,10 +6,7 @@ import org.springframework.stereotype.Service;
 import veiculos.locadora.locaVeiculos.dto.carro.CarroRequestDto;
 import veiculos.locadora.locaVeiculos.dto.carro.CarroResponseDto;
 import veiculos.locadora.locaVeiculos.entity.produto.*;
-import veiculos.locadora.locaVeiculos.mapper.AcessorioMapper;
-import veiculos.locadora.locaVeiculos.mapper.CarroMapper;
-import veiculos.locadora.locaVeiculos.mapper.FabricanteMapper;
-import veiculos.locadora.locaVeiculos.mapper.ModeloCarroMapper;
+import veiculos.locadora.locaVeiculos.mapper.*;
 import veiculos.locadora.locaVeiculos.repository.AcessorioRepository;
 import veiculos.locadora.locaVeiculos.repository.CarroRepository;
 import veiculos.locadora.locaVeiculos.repository.FabricanteRepository;
@@ -21,36 +18,25 @@ import java.util.stream.Collectors;
 @Service
 public class CarroService {
 
-    private final CarroMapper mapperStruct;
-    private final FabricanteMapper fabricanteMapper;
-    private final ModeloCarroMapper modeloCarroMapper;
-    private final AcessorioMapper accessorioMapper;
+    private final CarroMapper1 mapperStruct = new CarroMapper1();
+    private final FabricanteMapper1 fabricanteMapper = new FabricanteMapper1();
+    private final ModeloCarroMapper1 modeloCarroMapper = new ModeloCarroMapper1();
+    private final AcessorioMapper1 acessorioMapper = new AcessorioMapper1();
     private final CarroRepository carroRepository;
     private final FabricanteRepository fabricanteRepository;
     private final ModeloCarroRepository modeloCarroRepository;
     private final AcessorioRepository acessorioRepository;
-    private final AcessorioMapper acessorioMapper;
 
     @Autowired
     public CarroService(
-            CarroMapper mapperStruct,
-            FabricanteMapper fabricanteMapper,
-            ModeloCarroMapper modeloCarroMapper,
-            AcessorioMapper accessorioMapper,
             CarroRepository carroRepository,
             FabricanteRepository fabricanteRepository,
             ModeloCarroRepository modeloCarroRepository,
-            AcessorioRepository acessorioRepository,
-            AcessorioMapper acessorioMapper) {
-        this.mapperStruct = mapperStruct;
-        this.fabricanteMapper = fabricanteMapper;
-        this.modeloCarroMapper = modeloCarroMapper;
-        this.accessorioMapper = accessorioMapper;
+            AcessorioRepository acessorioRepository) {
         this.carroRepository = carroRepository;
         this.fabricanteRepository = fabricanteRepository;
         this.modeloCarroRepository = modeloCarroRepository;
         this.acessorioRepository = acessorioRepository;
-        this.acessorioMapper = acessorioMapper;
     }
 
     public CarroResponseDto cadastrar(@Valid CarroRequestDto requestDto) {

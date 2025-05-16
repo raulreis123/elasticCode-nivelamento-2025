@@ -7,6 +7,7 @@ import veiculos.locadora.locaVeiculos.dto.funcionario.FuncionarioResponseDto;
 import veiculos.locadora.locaVeiculos.entity.usuario.Funcionario;
 import veiculos.locadora.locaVeiculos.exceptions.EntidadeNaoEncontradoException;
 import veiculos.locadora.locaVeiculos.mapper.FuncionarioMapper;
+import veiculos.locadora.locaVeiculos.mapper.FuncionarioMapper1;
 import veiculos.locadora.locaVeiculos.repository.FuncionarioRepository;
 
 import java.util.List;
@@ -14,15 +15,10 @@ import java.util.Optional;
 
 @Service
 public class FuncionarioService {
-    private FuncionarioMapper mapperStruct;
+    private FuncionarioMapper1 mapperStruct = new FuncionarioMapper1();
 
     @Autowired
     private FuncionarioRepository repository;
-
-    @Autowired
-    public FuncionarioService(FuncionarioMapper mapperStruct) {
-        this.mapperStruct = mapperStruct;
-    }
 
     // CREATE
     public FuncionarioResponseDto cadastrar(FuncionarioRequestDto request){

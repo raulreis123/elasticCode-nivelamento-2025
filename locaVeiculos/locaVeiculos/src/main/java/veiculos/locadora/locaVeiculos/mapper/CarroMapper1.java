@@ -12,7 +12,7 @@ public class CarroMapper1 {
     AcessorioMapper1 mapperAcess = new AcessorioMapper1();
 
 
-    Carro toEntity(CarroRequestDto dto){
+    public Carro toEntity(CarroRequestDto dto){
         Carro carro = new Carro();
 
         carro.setPlaca(dto.getPlaca());
@@ -25,17 +25,17 @@ public class CarroMapper1 {
         return carro;
     }
 
-    CarroResponseDto toDto(Carro carro){
+    public CarroResponseDto toDto(Carro carro){
         CarroResponseDto dto = new CarroResponseDto();
 
         dto.setValorDiaria(carro.getValorDiaria());
-        dto.setModelo(mapperModel.toDtoFromRequest(carro.getModelo()));
+        dto.setModelo(mapperModel.toDto(carro.getModelo()));
         dto.setAcessorios(dto.getAcessorios());
 
         return dto;
     }
 
-    List<CarroResponseDto> toListDto(List<Carro> carros){
+    public List<CarroResponseDto> toListDto(List<Carro> carros){
         List<CarroResponseDto> dtos = new ArrayList<>();
 
         for(Carro car : carros){
