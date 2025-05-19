@@ -69,10 +69,7 @@ public class CarroService {
     }
 
     public List<CarroResponseDto> listarTodos() {
-        return carroRepository.findAll()
-                .stream()
-                .map(mapperStruct::toDto)
-                .collect(Collectors.toList());
+        return mapperStruct.toListDto(carroRepository.findAll());
     }
 
     public List<CarroResponseDto> listarPorCategoria(Categoria categoria) {

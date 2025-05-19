@@ -40,6 +40,6 @@ public class Carro {
     @ManyToOne
     private ModeloCarro modelo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Acessorio> acessorios;
 }
